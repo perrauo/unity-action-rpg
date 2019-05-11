@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4201564789893657041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4517138616039259003, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_Name
+      value: Drop.Gems.Few
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104328565563850925, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0]._choices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1]._choices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0].Chance.Probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0].Count._min
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0].Count._max
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0]._choices.Array.data[0]
+      value: 
+      objectReference: {fileID: 3990384095202044981, guid: 74b384501d0b036429a91afff5b92de7,
+        type: 3}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0]._choices.Array.data[1]
+      value: 
+      objectReference: {fileID: 3990384095202044981, guid: 74b384501d0b036429a91afff5b92de7,
+        type: 3}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1].Chance.Probability
+      value: 0.431
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1].Count._min
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1].Count._max
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1]._choices.Array.data[0]
+      value: 
+      objectReference: {fileID: 8383722265847120602, guid: ec7696679bfd00742a903281e7557b9e,
+        type: 3}
+    - target: {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0]._isRepeated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0]._choices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1]._choices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0].Chance.Probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0].Count._min
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0].Count._max
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[0]._choices.Array.data[0]
+      value: 
+      objectReference: {fileID: 3990384095202044981, guid: 74b384501d0b036429a91afff5b92de7,
+        type: 3}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1].Chance.Probability
+      value: 0.369
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1].Count._min
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1].Count._max
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1]._isRepeated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682392790453218382, guid: 029ff12bdc459fe468ce535f144221c2,
+        type: 3}
+      propertyPath: _randomDrops.Array.data[1]._choices.Array.data[0]
+      value: 
+      objectReference: {fileID: 8383722265847120602, guid: ec7696679bfd00742a903281e7557b9e,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 768788457491309222, guid: 029ff12bdc459fe468ce535f144221c2, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 029ff12bdc459fe468ce535f144221c2, type: 3}

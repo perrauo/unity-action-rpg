@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cube_cut.obj-c86cfa70acaf075359dd1510fc96036d.mesh"
+
+[deps]
+
+files=[ "res://.import/cube_cut.obj-c86cfa70acaf075359dd1510fc96036d.mesh" ]
+
+source_file="res://Cirrus.ARPG/World/Level/Graphics/cube_cut.obj"
+dest_files=[ "res://.import/cube_cut.obj-c86cfa70acaf075359dd1510fc96036d.mesh", "res://.import/cube_cut.obj-c86cfa70acaf075359dd1510fc96036d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

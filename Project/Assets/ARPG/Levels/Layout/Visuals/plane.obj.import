@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/plane.obj-d977549dfe7c2faeb658b4daff71876a.mesh"
+
+[deps]
+
+files=[ "res://.import/plane.obj-d977549dfe7c2faeb658b4daff71876a.mesh" ]
+
+source_file="res://Cirrus.ARPG/World/Level/Graphics/plane.obj"
+dest_files=[ "res://.import/plane.obj-d977549dfe7c2faeb658b4daff71876a.mesh", "res://.import/plane.obj-d977549dfe7c2faeb658b4daff71876a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

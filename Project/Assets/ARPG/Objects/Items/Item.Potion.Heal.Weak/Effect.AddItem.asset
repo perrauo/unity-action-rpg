@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1b2467f0e318b419cb488ed705590c, type: 3}
+  m_Name: Effect.AddItem
+  m_EditorClassIdentifier: 
+  _conditionFlags: 0
+  _globalCondition: {fileID: 0}
+  _sourceCondition: {fileID: 0}
+  _targetCondition: {fileID: 0}
+  _isItemTransfer: 0
+  _isAllOrNothing: 0
+  _tags: []
+  _items:
+  - {fileID: 6104152548872111561, guid: 5447b8b0ee98c5042891a45bd37914dd, type: 3}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b8a8c68d32774c93857e976a867eb, type: 3}
+  m_Name: Modification.Effect.Fire2
+  m_EditorClassIdentifier: 
+  _type: {fileID: 0}
+  IsStackable: 1
+  Persistence: {fileID: 11400000, guid: 6ec8f130eda359d4daee197aee4c81bc, type: 2}
+  _effects:
+  - {fileID: 0}
+  - {fileID: 0}
+  _cooldown: 1
+  _isLimitedRepeats: 1
+  _repeats: 5

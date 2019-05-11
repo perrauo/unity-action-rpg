@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964be09978740da4eaecd2eed62b4238, type: 3}
+  m_Name: Effect.Hostility.Stimulus
+  m_EditorClassIdentifier: 
+  _conditionFlags: 0
+  _globalCondition: {fileID: 0}
+  _sourceCondition: {fileID: 0}
+  _targetCondition: {fileID: 0}
+  _type: 0
+  _operation: {fileID: 11400000, guid: cc29d9ccc9728c544aaa54e7929617ae, type: 2}

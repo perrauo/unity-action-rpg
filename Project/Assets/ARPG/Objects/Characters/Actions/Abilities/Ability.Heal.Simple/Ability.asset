@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7affc73067eca8b44b6cdad26af62fdb, type: 3}
+  m_Name: Ability
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 58e2574d19023a848b3473c9be001ce4, type: 3}
+  Description: 
+  Action: {fileID: 11400000, guid: a7b6c89bed95e3842a58b2b6edcaa8c4, type: 2}
+  IsConditional: 1
+  Condition: {fileID: 11400000, guid: 7e8c8fb15dba20848b1fc205d5e98290, type: 2}
+  MaxCooldown: 5
+  StartLag: 2
+  EndLag: 2

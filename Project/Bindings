@@ -1,0 +1,112 @@
+// GENERATED AUTOMATICALLY FROM 'Assets/ARPG/Objects/Characters/Playable/Controls/InputAction.Character.inputactions'
+
+using System;
+using UnityEngine;
+using UnityEngine.Experimental.Input;
+
+
+namespace Cirrus.ARPG.Objects.Characters.Playable.Controls
+{
+    [Serializable]
+    public class Bindings : InputActionAssetReference
+    {
+        public Bindings()
+        {
+        }
+        public Bindings(InputActionAsset asset)
+            : base(asset)
+        {
+        }
+        private bool m_Initialized;
+        private void Initialize()
+        {
+            // Character
+            m_Character = asset.GetActionMap("Character");
+            m_Character_Movement = m_Character.GetAction("Movement");
+            m_Character_Jump = m_Character.GetAction("Jump");
+            m_Character_Action1 = m_Character.GetAction("Action.1");
+            m_Character_Action2 = m_Character.GetAction("Action.2");
+            m_Character_Action3 = m_Character.GetAction("Action.3");
+            m_Character_Action4 = m_Character.GetAction("Action.4");
+            m_Character_Action5 = m_Character.GetAction("Action.5");
+            m_Character_Action6 = m_Character.GetAction("Action.6");
+            m_Character_Action7 = m_Character.GetAction("Action.7");
+            m_Character_Action8 = m_Character.GetAction("Action.8");
+            m_Character_Action9 = m_Character.GetAction("Action.9");
+            m_Character_Action0 = m_Character.GetAction("Action.0");
+            m_Initialized = true;
+        }
+        private void Uninitialize()
+        {
+            m_Character = null;
+            m_Character_Movement = null;
+            m_Character_Jump = null;
+            m_Character_Action1 = null;
+            m_Character_Action2 = null;
+            m_Character_Action3 = null;
+            m_Character_Action4 = null;
+            m_Character_Action5 = null;
+            m_Character_Action6 = null;
+            m_Character_Action7 = null;
+            m_Character_Action8 = null;
+            m_Character_Action9 = null;
+            m_Character_Action0 = null;
+            m_Initialized = false;
+        }
+        public void SetAsset(InputActionAsset newAsset)
+        {
+            if (newAsset == asset) return;
+            if (m_Initialized) Uninitialize();
+            asset = newAsset;
+        }
+        public override void MakePrivateCopyOfActions()
+        {
+            SetAsset(ScriptableObject.Instantiate(asset));
+        }
+        // Character
+        private InputActionMap m_Character;
+        private InputAction m_Character_Movement;
+        private InputAction m_Character_Jump;
+        private InputAction m_Character_Action1;
+        private InputAction m_Character_Action2;
+        private InputAction m_Character_Action3;
+        private InputAction m_Character_Action4;
+        private InputAction m_Character_Action5;
+        private InputAction m_Character_Action6;
+        private InputAction m_Character_Action7;
+        private InputAction m_Character_Action8;
+        private InputAction m_Character_Action9;
+        private InputAction m_Character_Action0;
+        public struct CharacterActions
+        {
+            private Bindings m_Wrapper;
+            public CharacterActions(Bindings wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Movement { get { return m_Wrapper.m_Character_Movement; } }
+            public InputAction @Jump { get { return m_Wrapper.m_Character_Jump; } }
+            public InputAction @Action1 { get { return m_Wrapper.m_Character_Action1; } }
+            public InputAction @Action2 { get { return m_Wrapper.m_Character_Action2; } }
+            public InputAction @Action3 { get { return m_Wrapper.m_Character_Action3; } }
+            public InputAction @Action4 { get { return m_Wrapper.m_Character_Action4; } }
+            public InputAction @Action5 { get { return m_Wrapper.m_Character_Action5; } }
+            public InputAction @Action6 { get { return m_Wrapper.m_Character_Action6; } }
+            public InputAction @Action7 { get { return m_Wrapper.m_Character_Action7; } }
+            public InputAction @Action8 { get { return m_Wrapper.m_Character_Action8; } }
+            public InputAction @Action9 { get { return m_Wrapper.m_Character_Action9; } }
+            public InputAction @Action0 { get { return m_Wrapper.m_Character_Action0; } }
+            public InputActionMap Get() { return m_Wrapper.m_Character; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled { get { return Get().enabled; } }
+            public InputActionMap Clone() { return Get().Clone(); }
+            public static implicit operator InputActionMap(CharacterActions set) { return set.Get(); }
+        }
+        public CharacterActions @Character
+        {
+            get
+            {
+                if (!m_Initialized) Initialize();
+                return new CharacterActions(this);
+            }
+        }
+    }
+}
