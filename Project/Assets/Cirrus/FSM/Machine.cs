@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Threading;
+using System.Linq;
 
 namespace Cirrus.FSM
 {
@@ -10,42 +12,106 @@ namespace Cirrus.FSM
     /// </summary>
 
     [System.Serializable]
-    public class Machine
+    public class Machine : MonoBehaviour
     {
-        //Must be set manually
         [SerializeField]
-        private int _contextSize = 5;
-        public object[] Context = null;
+        private GameObject _stateLabel;
 
-        public void SetContext(object context, int idx)
+        [SerializeField]
+        [Editor.ObjectSelector]
+        public MonoBehaviour[] Context;
+
+        Mutex _mutex;
+
+
+        private IState _first;
+
+        public void OnValidate()
         {
-            if(Context == null) this.Context = new object[_contextSize];
-            Context[idx] = context;
+            if (_sceneStates.Length == 0)
+            {
+                _sceneStates = GetComponents<SceneState>();
+            }
+
+            //if (_sceneStates.Length == 0)
+            //{
+            //    _sceneStates = GetComponentsInChildren<SceneState>();
+            //}
+        }
+
+        public void Awake()
+        {
+            _dictionary = new Dictionary<int, IState>();
+            _mutex = new Mutex();
+            _stack = new Stack<IState>();
+
+            //_dictionary.Add((int)DefaultState.Idle, new Idle.State());
+            _first = null;
+            foreach (AssetState res in _assetStates)
+            {
+                if (res != null)
+                {
+                    if (_dictionary.ContainsKey(res.Id))
+                        continue;
+
+                    IState state = CreateState(res);
+                    _dictionary.Add(res.Id, state);
+
+                    if (_first == null && res.IsStart)
+                        _first = state;
+                }
+
+            }
+
+            foreach (SceneState res in _sceneStates)
+            {
+                if (res != null)
+                {
+                    if (_dictionary.ContainsKey(res.Id))
+                        continue;
+
+                    IState state = CreateState(res);
+                    _dictionary.Add(res.Id, state);
+
+                    if (_first == null && res.IsStart)
+                        _first = state;
+                }
+
+            }
+
+            if (_first == null)
+            {
+                if (_dictionary.Count != 0)
+                    _first = _dictionary.Values.First();
+            }
         }
 
         public void Start()
         {
-            _stack = new Stack<State>();
-            _dictionary = new Dictionary<int, State>();
+            TryPushState(_first.Id);
+        }
 
-            State first = Populate();
 
-            // sets the first in the array as active
-            if (first != null)
+        public Stack<IState> _stack;
+
+        [SerializeField]
+        public IState Top
+        {
+            get
             {
-                SetState(first.Id);
+                return _stack == null ?
+                    null :
+                    _stack.Count == 0 ? null : _stack.Peek();
             }
         }
 
         [SerializeField]
-        public State Top
-        { get { return _stack == null || _stack.Count==0 ? null : _stack.Peek(); } }
-
+        public AssetState[] _assetStates;
 
         [SerializeField]
-        public Resource[] states;
-        private Stack<State> _stack = null;
-        private Dictionary<int, State> _dictionary;
+        public SceneState[] _sceneStates;
+
+        private Dictionary<int, IState> _dictionary;
 
         private bool _enabled = true;
 
@@ -59,147 +125,167 @@ namespace Cirrus.FSM
             _enabled = true;
         }
 
-
-        /// <summary>
-        /// populates the dictionary and returns the first state
-        /// </summary>
-        /// <returns></returns>
-        private State Populate()
+        public virtual IState CreateState(IResource resource)
         {
-            _dictionary.Add((int)Cirrus.FSM.DefaultState.Idle, new Idle.State());
-            State first = null;
-            foreach (Resource res in states)
-            {
-                if (res != null)
-                {
-                    if (_dictionary.ContainsKey(res.Id))
-                        continue;
-
-                    State state = CreateState(res);
-                    _dictionary.Add(res.Id, state);
-
-                    if(first == null)
-                        first = state;
-                }
-
-            }
-
-            return first;
-
-        }
-
-        public virtual State CreateState(Resource resource)
-        {
-            return resource.Create(Context);
+            return resource.PopulateState(Context);
         }
 
 
         public string StateName = "";
 
 
-        public void DoUpdate()
+        public void Update()
         {
-            if (!_enabled)
-                return;
+            if (_stateLabel != null)
+            {
+                _stateLabel.name = Top == null ? "?" : Top.Name;
+            }
 
-            if (_stack.Count == 0)
+            if (!_enabled)
                 return;
 
             if (Top != null)
             {
-                int pos = Top.ToString().LastIndexOf(".") + 1;
-                StateName = Top.ToString().Substring(pos, Top.ToString().Length - pos);
-
-                Top.BeginTick();
-                Top.EndTick();
+                Top.BeginUpdate();
+                Top.EndUpdate();
             }
         }
+
+        public void FixedUpdate()
+        {
+            if (!_enabled)
+                return;
+
+            if (Top != null)
+            {
+                Top.BeginUpdate();
+                Top.EndUpdate();
+            }
+        }
+
 
         public void OnDrawGizmos()
         {
             if (!_enabled)
                 return;
 
-            if (_stack == null)
-                return;
 
-            if (_stack.Count == 0)
-                return;
 
             if (Top != null)
             {
-                Top.OnDrawGizmos();
+                Top.UpdateDrawGizmos();
             }
         }
 
-        public void SetState<T>(T state, params object[] args)
+
+        public void DrawGizmosIcon(Vector3 pos)
         {
             if (Top != null)
             {
-                if (Top.Id == -1)
-                    return;
+                //Gizmos.DrawIcon(pos, Top.ToString(), true);
+                //Handles.Label(pos, Top.ToString());
+                //Utils.TextGizmo.Draw(pos, Top.ToString());
 
-                Top.Exit();
-                _stack.Clear();
-            }
-
-
-            if (_stack.Count != 0 && _stack.Peek().Id == (int)(object)state)
-            {
-                _dictionary[(int)(object)state].Reenter(args);
-            }
-            else
-            {
-                _stack.Push(_dictionary[(int)(object)state]);
-                _dictionary[(int)(object)state].Enter(args);
             }
         }
 
-        public void SetState(int state, params object[] args)
+        public bool TrySetState<T>(T state, params object[] args)
         {
-            if (Top != null)
-            {
-                if (Top.Id == (int)(object)state)
-                    return;
+            return TrySetState((int)(object)state, args);
+        }
 
-                if (Top.Id == -1)
+        public bool TryPushState<T>(T state, params object[] args)
+        {
+            return TryPushState((int)(object)state, args);
+        }
+
+        public bool TryPushState(int state, params object[] args)
+        {
+            if (_dictionary.TryGetValue(state, out IState res))
+            {
+                IState current = Top;
+
+                if (current != null)
+                    current.Exit();
+
+                if (current != null && current.Id == res.Id)
                 {
-                    return;
+                    res.Reenter(args);
                 }
-            
-                Top.Exit();
-                _stack.Clear();
+                else
+                {
+                    _mutex.WaitOne();
+
+                    _stack.Push(res);
+
+                    _mutex.ReleaseMutex();
+
+                    res.Enter(args);
+                }
+
+                return true;
             }
 
-            if (_stack.Count != 0 && _stack.Peek().Id == state)
-            {
-                _dictionary[(int)(object)state].Reenter(args);
-            }
-            else
-            {
-                _stack.Push(_dictionary[(int)(object)state]);
-                _dictionary[(int)(object)state].Enter(args);
-            }
+            return false;
         }
 
-        public void PushState(int state, params object[] args)
+        public bool TryPopState(params object[] args)
         {
-            _stack.Push(_dictionary[state]);
-            _dictionary[state].Enter(args);
-        }
-
-        public void PopState()
-        {
-            if (Top != null)
+            if (_stack.Count > 1)
             {
-                if (Top.Id == -1)
-                    return;
-
                 Top.Exit();
+                IState prev = Top;
+
+                _mutex.WaitOne();
                 _stack.Pop();
+                _mutex.ReleaseMutex();
+
+                if (prev.Id == Top.Id)
+                {
+                    Top.Reenter(args);
+                }
+                else
+                {
+                    Top.Enter(args);
+                }
+
+                return true;
             }
+
+            return false;
         }
 
+        public bool TrySetState(int state, params object[] args)
+        {
+            if(_dictionary.TryGetValue(state, out IState res))
+            {
+                IState current = Top; 
+
+                if(current != null)
+                    current.Exit();
+
+                if (current != null && current.Id == res.Id)
+                {
+                    res.Reenter(args);
+                }
+                else
+                {
+                    _mutex.WaitOne();
+
+                    _stack.Clear();
+
+                    _stack.Push(res);
+
+                    _mutex.ReleaseMutex();
+
+                    res.Enter(args);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,10 +30,12 @@ namespace KinematicCharacterController
         /// </summary>
         [ReadOnly]
         public Rigidbody Rigidbody;
+
         /// <summary>
-        /// The BaseMoverController that manages this mover
+        /// Index of this motor in KinematicCharacterSystem arrays
         /// </summary>
-        public BaseMoverController MoverController;
+        [NonSerialized]
+        public IMoverController MoverController;
 
         /// <summary>
         /// Index of this motor in KinematicCharacterSystem arrays
@@ -61,6 +64,7 @@ namespace KinematicCharacterController
         public Quaternion InitialSimulationRotation { get; private set; }
 
         private Vector3 _internalTransientPosition;
+
         /// <summary>
         /// The mover's rotation (always up-to-date during the character update phase)
         /// </summary>
@@ -119,7 +123,7 @@ namespace KinematicCharacterController
             Rigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
             Rigidbody.isKinematic = true;
             Rigidbody.constraints = RigidbodyConstraints.None;
-            Rigidbody.interpolation = KinematicCharacterSystem.InterpolationMethod == CharacterSystemInterpolationMethod.Unity ? RigidbodyInterpolation.Interpolate : RigidbodyInterpolation.None;
+            Rigidbody.interpolation = RigidbodyInterpolation.None;
         }
 
         private void OnEnable()
@@ -138,8 +142,6 @@ namespace KinematicCharacterController
             Transform = this.transform;
             ValidateData();
 
-            MoverController.SetupMover(this);
-
             TransientPosition = Rigidbody.position;
             TransientRotation = Rigidbody.rotation;
             InitialSimulationPosition = Rigidbody.position;
@@ -151,12 +153,10 @@ namespace KinematicCharacterController
         /// </summary>
         public void SetPosition(Vector3 position)
         {
-            Rigidbody.interpolation = RigidbodyInterpolation.None;
             Transform.position = position;
             Rigidbody.position = position;
             InitialSimulationPosition = position;
             TransientPosition = position;
-            Rigidbody.interpolation = KinematicCharacterSystem.InterpolationMethod == CharacterSystemInterpolationMethod.Unity ? RigidbodyInterpolation.Interpolate : RigidbodyInterpolation.None;
         }
 
         /// <summary>
@@ -164,12 +164,10 @@ namespace KinematicCharacterController
         /// </summary>
         public void SetRotation(Quaternion rotation)
         {
-            Rigidbody.interpolation = RigidbodyInterpolation.None;
             Transform.rotation = rotation;
             Rigidbody.rotation = rotation;
             InitialSimulationRotation = rotation;
             TransientRotation = rotation;
-            Rigidbody.interpolation = KinematicCharacterSystem.InterpolationMethod == CharacterSystemInterpolationMethod.Unity ? RigidbodyInterpolation.Interpolate : RigidbodyInterpolation.None;
         }
 
         /// <summary>
@@ -177,7 +175,6 @@ namespace KinematicCharacterController
         /// </summary>
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
-            Rigidbody.interpolation = RigidbodyInterpolation.None;
             Transform.SetPositionAndRotation(position, rotation);
             Rigidbody.position = position;
             Rigidbody.rotation = rotation;
@@ -185,7 +182,6 @@ namespace KinematicCharacterController
             InitialSimulationRotation = rotation;
             TransientPosition = position;
             TransientRotation = rotation;
-            Rigidbody.interpolation = KinematicCharacterSystem.InterpolationMethod == CharacterSystemInterpolationMethod.Unity ? RigidbodyInterpolation.Interpolate : RigidbodyInterpolation.None;
         }
 
         /// <summary>

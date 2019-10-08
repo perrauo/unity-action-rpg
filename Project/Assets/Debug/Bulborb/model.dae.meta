@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: ca2278928dd87ec44946fd9bbeaa8da7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ankle_l_1
+    100002: ankle_r_1
+    100004: chappy
+    100006: chappy_HD__circle_m
+    100008: chappy_HD__eye_b_m
+    100010: chappy_HD__eye_c_m
+    100012: chappy_HD__eye_w_m
+    100014: chappy_HD__face_m
+    100016: eye_l_1
+    100018: eye_r_1
+    100020: eye_root_1
+    100022: face_1
+    100024: hip_1
+    100026: jaw_1
+    100028: kamu1_1
+    100030: kamu2_1
+    100032: kamu3_1
+    100034: kamu4_1
+    100036: kamu5_1
+    100038: leg_l1_1
+    100040: leg_l2_1
+    100042: leg_r1_1
+    100044: leg_r2_1
+    100046: //RootNode
+    100048: nose_1
+    100050: root_1
+    100052: waist_1
+    400000: ankle_l_1
+    400002: ankle_r_1
+    400004: chappy
+    400006: chappy_HD__circle_m
+    400008: chappy_HD__eye_b_m
+    400010: chappy_HD__eye_c_m
+    400012: chappy_HD__eye_w_m
+    400014: chappy_HD__face_m
+    400016: eye_l_1
+    400018: eye_r_1
+    400020: eye_root_1
+    400022: face_1
+    400024: hip_1
+    400026: jaw_1
+    400028: kamu1_1
+    400030: kamu2_1
+    400032: kamu3_1
+    400034: kamu4_1
+    400036: kamu5_1
+    400038: leg_l1_1
+    400040: leg_l2_1
+    400042: leg_r1_1
+    400044: leg_r2_1
+    400046: //RootNode
+    400048: nose_1
+    400050: root_1
+    400052: waist_1
+    2100000: circle_m
+    2100002: eye_b_m
+    2100004: eye_c_m
+    2100006: eye_w_m
+    2100008: face_m
+    4300000: chappy_HD__circle_m
+    4300002: chappy_HD__eye_b_m
+    4300004: chappy_HD__eye_c_m
+    4300006: chappy_HD__eye_w_m
+    4300008: chappy_HD__face_m
+    9500000: //RootNode
+    13700000: chappy_HD__circle_m
+    13700002: chappy_HD__eye_b_m
+    13700004: chappy_HD__eye_c_m
+    13700006: chappy_HD__eye_w_m
+    13700008: chappy_HD__face_m
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,7 +13,7 @@ namespace Cirrus.Numeric
 
         public void OnValidate()
         {
-            _value.OnValidate();
+            //_value.OnValidate();
         }
     }
 }

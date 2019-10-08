@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe5b5f224bebde45ad3f8d2e0cce8cd, type: 3}
+  m_Name: Strategy.Tackle
+  m_EditorClassIdentifier: 
+  MinRange: 1
+  MaxRange: 3.5
+  _timeoutTime: 10
+  _stepSpeed: 20
+  _stepSpeedDiscount: 0.8
+  _hitDuration: 2
+  _stepDuration: 0.1
+  _withdrawDelay: 0.5
+  _withdrawStepDuration: 0.01
+  _withdrawStepSpeed: 4
+  _withdrawStepDiscount: 0.9

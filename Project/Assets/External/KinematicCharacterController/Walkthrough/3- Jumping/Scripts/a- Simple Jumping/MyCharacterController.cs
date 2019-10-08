@@ -14,8 +14,10 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
         public bool JumpDown;
     }
 
-    public class MyCharacterController : BaseCharacterController
+    public class MyCharacterController : MonoBehaviour, ICharacterController
     {
+        public KinematicCharacterMotor Motor;
+
         [Header("Stable Movement")]
         public float MaxStableMoveSpeed = 10f;
         public float StableMovementSharpness = 15;
@@ -36,13 +38,21 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
         public Vector3 Gravity = new Vector3(0, -30f, 0);
         public Transform MeshRoot;
 
-        public Vector3 _moveInputVector;
-        public Vector3 _lookInputVector;
+
+        private Vector3 _moveInputVector;
+        private Vector3 _lookInputVector;
         private bool _jumpRequested = false;
         private bool _jumpConsumed = false;
         private bool _jumpedThisFrame = false;
         private float _timeSinceJumpRequested = Mathf.Infinity;
         private float _timeSinceLastAbleToJump = 0f;
+
+
+        private void Start()
+        {
+            // Assign to motor
+            Motor.CharacterController = this;
+        }
 
         /// <summary>
         /// This is called every frame by MyPlayer in order to tell the character what its inputs are
@@ -76,7 +86,7 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
         /// (Called by KinematicCharacterMotor during its update cycle)
         /// This is called before the character begins its movement update
         /// </summary>
-        public override void BeforeCharacterUpdate(float deltaTime)
+        public void BeforeCharacterUpdate(float deltaTime)
         {
         }
 
@@ -85,7 +95,7 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
         /// This is where you tell your character what its rotation should be right now. 
         /// This is the ONLY place where you should set the character's rotation
         /// </summary>
-        public override void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
+        public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
         {
             if (_lookInputVector != Vector3.zero && OrientationSharpness > 0f)
             {
@@ -102,7 +112,7 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
         /// This is where you tell your character what its velocity should be right now. 
         /// This is the ONLY place where you can set the character's velocity
         /// </summary>
-        public override void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
+        public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
         {
             Vector3 targetMovementVelocity = Vector3.zero;
             if (Motor.GroundingStatus.IsStableOnGround)
@@ -160,7 +170,7 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
 
                     // Makes the character skip ground probing/snapping on its next update. 
                     // If this line weren't here, the character would remain snapped to the ground when trying to jump. Try commenting this line out and see.
-                    Motor.ForceUnground();
+                    Motor.ForceUnground(0.1f);
 
                     // Add to the return velocity and reset jump state
                     currentVelocity += (jumpDirection * JumpSpeed) - Vector3.Project(currentVelocity, Motor.CharacterUp);
@@ -175,7 +185,7 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
         /// (Called by KinematicCharacterMotor during its update cycle)
         /// This is called after the character has finished its movement update
         /// </summary>
-        public override void AfterCharacterUpdate(float deltaTime)
+        public void AfterCharacterUpdate(float deltaTime)
         {
             // Handle jump-related values
             {
@@ -203,20 +213,20 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
             }
         }
 
-        public override bool IsColliderValidForCollisions(Collider coll)
+        public bool IsColliderValidForCollisions(Collider coll)
         {
             return true;
         }
 
-        public override void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        public override void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        public override void PostGroundingUpdate(float deltaTime)
+        public void PostGroundingUpdate(float deltaTime)
         {
         }
 
@@ -224,7 +234,11 @@ namespace KinematicCharacterController.Walkthrough.SimpleJumping
         {
         }
 
-        public override void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
+        public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
+        {
+        }
+
+        public void OnDiscreteCollisionDetected(Collider hitCollider)
         {
         }
     }

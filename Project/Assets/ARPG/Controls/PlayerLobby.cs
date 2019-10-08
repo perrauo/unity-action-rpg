@@ -2,15 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityInputs = UnityEngine.Experimental.Input;
-using UnityEngine.Experimental.Input;
-using UnityEngine.Experimental.Input.Controls;
-using UnityEngine.Experimental.Input.LowLevel;
-using UnityEngine.Experimental.Input.Plugins.Users;
+using UnityInputs = UnityEngine.InputSystem;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.Users;//.Plugins.Users;
 
 // TODO
 
-namespace Cirrus.ARPG.Playable.Controls
+namespace Cirrus.ARPG.Controls
 {
     public class PlayerLobby : MonoBehaviour
     {
@@ -19,7 +19,7 @@ namespace Cirrus.ARPG.Playable.Controls
 
         public void Awake()
         {
-            InputUser.onUnpairedDeviceUsed += OnUnpairedInputDeviceUsed;
+            //InputUser.onUnpairedDeviceUsed += OnUnpairedInputDeviceUsed;
             // Have it let us know then the user setup in the system changes.
             InputUser.onChange += OnUserChange;
         }

@@ -8,10 +8,9 @@ namespace KinematicCharacterController.Walkthrough.DoubleJumping
 {
     public class MyPlayer : MonoBehaviour
     {
-        public OrbitCamera OrbitCamera;
+        public ExampleCharacterCamera OrbitCamera;
         public Transform CameraFollowPoint;
         public MyCharacterController Character;
-        public float MouseSensitivity = 0.01f;
 
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
@@ -27,12 +26,13 @@ namespace KinematicCharacterController.Walkthrough.DoubleJumping
             OrbitCamera.SetFollowTransform(CameraFollowPoint);
 
             // Ignore the character's collider(s) for camera obstruction checks
-            OrbitCamera.IgnoredColliders = Character.GetComponentsInChildren<Collider>();
+            OrbitCamera.IgnoredColliders.Clear();
+            OrbitCamera.IgnoredColliders.AddRange(Character.GetComponentsInChildren<Collider>());
         }
 
         private void Update()
         {
-            if (UnityEngine.Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 Cursor.lockState = CursorLockMode.Locked;
             }
@@ -44,9 +44,9 @@ namespace KinematicCharacterController.Walkthrough.DoubleJumping
         private void HandleCameraInput()
         {
             // Create the look input vector for the camera
-            float mouseLookAxisUp = UnityEngine.Input.GetAxisRaw(MouseYInput);
-            float mouseLookAxisRight = UnityEngine.Input.GetAxisRaw(MouseXInput);
-            Vector3 lookInputVector = new Vector3(mouseLookAxisRight * MouseSensitivity, mouseLookAxisUp * MouseSensitivity, 0f);
+            float mouseLookAxisUp = Input.GetAxisRaw(MouseYInput);
+            float mouseLookAxisRight = Input.GetAxisRaw(MouseXInput);
+            Vector3 lookInputVector = new Vector3(mouseLookAxisRight, mouseLookAxisUp, 0f);
 
             // Prevent moving the camera while the cursor isn't locked
             if (Cursor.lockState != CursorLockMode.Locked)
@@ -55,7 +55,7 @@ namespace KinematicCharacterController.Walkthrough.DoubleJumping
             }
 
             // Input for zooming the camera (disabled in WebGL because it can cause problems)
-            float scrollInput = -UnityEngine.Input.GetAxis(MouseScrollInput);
+            float scrollInput = -Input.GetAxis(MouseScrollInput);
 #if UNITY_WEBGL
         scrollInput = 0f;
 #endif
@@ -64,7 +64,7 @@ namespace KinematicCharacterController.Walkthrough.DoubleJumping
             OrbitCamera.UpdateWithInput(Time.deltaTime, scrollInput, lookInputVector);
 
             // Handle toggling zoom level
-            if (UnityEngine.Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1))
             {
                 OrbitCamera.TargetDistance = (OrbitCamera.TargetDistance == 0f) ? OrbitCamera.DefaultDistance : 0f;
             }
@@ -75,10 +75,10 @@ namespace KinematicCharacterController.Walkthrough.DoubleJumping
             PlayerCharacterInputs characterInputs = new PlayerCharacterInputs();
 
             // Build the CharacterInputs struct
-            characterInputs.MoveAxisForward = UnityEngine.Input.GetAxisRaw(VerticalInput);
-            characterInputs.MoveAxisRight = UnityEngine.Input.GetAxisRaw(HorizontalInput);
+            characterInputs.MoveAxisForward = Input.GetAxisRaw(VerticalInput);
+            characterInputs.MoveAxisRight = Input.GetAxisRaw(HorizontalInput);
             characterInputs.CameraRotation = OrbitCamera.Transform.rotation;
-            characterInputs.JumpDown = UnityEngine.Input.GetKeyDown(KeyCode.Space);
+            characterInputs.JumpDown = Input.GetKeyDown(KeyCode.Space);
 
             // Apply inputs to character
             Character.SetInputs(ref characterInputs);

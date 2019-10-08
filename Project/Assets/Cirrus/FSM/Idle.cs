@@ -3,11 +3,11 @@ using UnityEditor;
 
 namespace Cirrus.FSM
 {
-    public class Idle : Resource
+    public class Idle : AssetState
     {
         override public int Id { get { return (int) DefaultState.Idle; } }
 
-        public override FSM.State Create(object[] context)
+        public override FSM.IState PopulateState(object[] context)
         {
             throw new System.NotImplementedException();
         }

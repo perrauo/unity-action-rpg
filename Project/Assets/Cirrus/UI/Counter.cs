@@ -6,10 +6,6 @@ namespace Cirrus.UI
 {
     public class Counter : MonoBehaviour
     {
-        public delegate void OnFloatUpdated(float newValue);
-
-        public delegate void OnIntUpdated(int newValue);
-
         [SerializeField]
         private string _message = "";
 

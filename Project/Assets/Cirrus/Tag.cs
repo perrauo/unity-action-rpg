@@ -28,7 +28,6 @@ namespace Cirrus.Tags
         IEnumerable<Tag> Tags { get; }
     }
 
-
     public abstract class Tag : ScriptableObject
     {
         public abstract int Flags { get; }

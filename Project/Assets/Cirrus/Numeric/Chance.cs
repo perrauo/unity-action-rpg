@@ -10,7 +10,7 @@ namespace Cirrus.Numeric
         [Range(0f, 1f)]
         public float Probability;
 
-        public bool IsOccurrence
+        public bool IsTrue
         {
             get
             {

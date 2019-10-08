@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d602a743f98e07e48a65c115ab134d79, type: 3}
+  m_Name: Attributes.Simple
+  m_EditorClassIdentifier: 
+  Nickname: {fileID: 0}
+  _health: {fileID: 11400000, guid: d2858df66ec65134b9823dc2df5870d2, type: 2}
+  _maxHealth: {fileID: 11400000, guid: 44c352b6e3eaf664e81af89c3c06c2c4, type: 2}
+  _healthRegen: {fileID: 0}
+  _healthRegenTime: {fileID: 0}
+  _energy: {fileID: 11400000, guid: af29d8b2602fefa46bd751233fb69964, type: 2}
+  _maxEnergy: {fileID: 11400000, guid: e67deb053f05291448f591ae0af2702b, type: 2}
+  _energyRegen: {fileID: 0}
+  _energyRegenTime: {fileID: 0}
+  _experience: {fileID: 0}
+  _gems: {fileID: 11400000, guid: e28f7d628688b8147b66e804c7357206, type: 2}
+  _constitution: {fileID: 11400000, guid: c1a25265d7054c34abce21e83e171e1b, type: 2}
+  _defence: {fileID: 11400000, guid: 5529f676ab36899488f9e3f46ebf65e6, type: 2}
+  _speed: {fileID: 11400000, guid: c79c083742f59524c94a4e964b3d57d1, type: 2}
+  _damage: {fileID: 11400000, guid: dfc65309ed84ffd46b58875b1003011c, type: 2}
+  _level: {fileID: 0}
+  _luck: {fileID: 0}

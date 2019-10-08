@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System;
 
 namespace Cirrus.Numeric
 {
@@ -27,7 +29,6 @@ namespace Cirrus.Numeric
         [SerializeField]
         private string _expression = "CURRENT + 2";
 
-
         public override float Evaluate(float current, float total)
         {
             string resolved =
@@ -40,10 +41,7 @@ namespace Cirrus.Numeric
                 resolved = resolved.Replace(variable.Name, variable.Number.Value.ToString());
             }
 
-            if (UnityEditor.ExpressionEvaluator.Evaluate(resolved, out float res))
-                return res;
-
-            return 0;
+            return (float)Convert.ToDouble(new DataTable().Compute(resolved, null));
         }
 
     }

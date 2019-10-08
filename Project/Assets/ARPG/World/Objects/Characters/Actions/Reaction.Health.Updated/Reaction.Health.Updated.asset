@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57293e9944680e34287ac616e605519e, type: 3}
+  m_Name: Reaction.Health.Updated
+  m_EditorClassIdentifier: 
+  _hasAction: 1
+  _action: {fileID: 11400000, guid: 35a36484743bef840827c2ccda64f89a, type: 2}
+  _popupTemplateRemove: {fileID: 4222293729811446118, guid: ac755c14e73fe664d8fec5bdfd21315a,
+    type: 3}
+  _popupTemplateAdd: {fileID: 4222293729811446118, guid: 26517c192561b0a4ba79cbd385e35b1f,
+    type: 3}

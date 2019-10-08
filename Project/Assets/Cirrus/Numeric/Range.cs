@@ -52,24 +52,24 @@ namespace Cirrus.Numeric
     public class RangeFloat : IRange
     {
         [SerializeField]
-        private FloatNumber _min;
+        private float _min;
 
         public float Min
         {
             get
             {
-                return _min.Value;
+                return _min;
             }
         }
 
         [SerializeField]
-        private FloatNumber _max;
+        private float _max;
 
         public float Max
         {
             get
             {
-                return _max.Value;
+                return _max;
             }
         }
 
@@ -78,7 +78,7 @@ namespace Cirrus.Numeric
         {
             get
             {
-                return Random.Range(_min.Value, _max.Value);
+                return Random.Range(_min, _max);
 
             }
         }

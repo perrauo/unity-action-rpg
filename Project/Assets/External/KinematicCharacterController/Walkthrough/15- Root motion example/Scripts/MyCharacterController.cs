@@ -12,8 +12,10 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
         public float MoveAxisRight;
     }
 
-    public class MyCharacterController : BaseCharacterController
+    public class MyCharacterController : MonoBehaviour, ICharacterController
     {
+        public KinematicCharacterMotor Motor;
+
         [Header("Stable Movement")]
         public float MaxStableMoveSpeed = 10f;
         public float StableMovementSharpness = 15;
@@ -56,6 +58,9 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
         {
             _rootMotionPositionDelta = Vector3.zero;
             _rootMotionRotationDelta = Quaternion.identity;
+
+            // Assign to motor
+            Motor.CharacterController = this;
         }
 
         private void Update()
@@ -72,7 +77,7 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
         /// (Called by KinematicCharacterMotor during its update cycle)
         /// This is called before the character begins its movement update
         /// </summary>
-        public override void BeforeCharacterUpdate(float deltaTime)
+        public void BeforeCharacterUpdate(float deltaTime)
         {
         }
 
@@ -81,7 +86,7 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
         /// This is where you tell your character what its rotation should be right now. 
         /// This is the ONLY place where you should set the character's rotation
         /// </summary>
-        public override void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
+        public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
         {
             currentRotation = _rootMotionRotationDelta * currentRotation;
         }
@@ -91,7 +96,7 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
         /// This is where you tell your character what its velocity should be right now. 
         /// This is the ONLY place where you can set the character's velocity
         /// </summary>
-        public override void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
+        public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
         {
             if (Motor.GroundingStatus.IsStableOnGround)
             {
@@ -129,27 +134,27 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
         /// (Called by KinematicCharacterMotor during its update cycle)
         /// This is called after the character has finished its movement update
         /// </summary>
-        public override void AfterCharacterUpdate(float deltaTime)
+        public void AfterCharacterUpdate(float deltaTime)
         {
             // Reset root motion deltas
             _rootMotionPositionDelta = Vector3.zero;
             _rootMotionRotationDelta = Quaternion.identity;
         }
 
-        public override bool IsColliderValidForCollisions(Collider coll)
+        public bool IsColliderValidForCollisions(Collider coll)
         {
             return true;
         }
 
-        public override void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        public override void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
 
-        public override void PostGroundingUpdate(float deltaTime)
+        public void PostGroundingUpdate(float deltaTime)
         {
         }
 
@@ -157,7 +162,7 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
         {
         }
 
-        public override void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
+        public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
         {
         }
 
@@ -166,6 +171,10 @@ namespace KinematicCharacterController.Walkthrough.RootMotionExample
             // Accumulate rootMotion deltas between character updates 
             _rootMotionPositionDelta += CharacterAnimator.deltaPosition;
             _rootMotionRotationDelta = CharacterAnimator.deltaRotation * _rootMotionRotationDelta;
+        }
+
+        public void OnDiscreteCollisionDetected(Collider hitCollider)
+        {
         }
     }
 }

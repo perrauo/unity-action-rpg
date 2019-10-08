@@ -22,19 +22,21 @@ namespace Cirrus.Editor
 
             if (property == null || property.objectReferenceValue == null)
             {
-                Cirrus.Editor.RefEditorGUI.DefaultPropertyField(position, property, label);
+                RefEditorGUI.DefaultPropertyField(position, property, label);
+                return;
+            }
+
+            if (property.objectReferenceValue is ScriptableObject)
+            {
+                Debug.Log("Default");
+                Default(position, property, label);
                 return;
             }
 
 
             MonoBehaviour behaviour = property.objectReferenceValue as MonoBehaviour;
-            if (behaviour == null)
-            {
-                Default(position, property, label);
-                return;
-            }
 
-            List<MonoBehaviour> components = new List<MonoBehaviour>(behaviour.gameObject.GetComponents<MonoBehaviour>());
+            List<Object> components = new List<Object>(behaviour.gameObject.GetComponents<MonoBehaviour>());
             if (components.Count == 1)
             {
                 Default(position, property, label);

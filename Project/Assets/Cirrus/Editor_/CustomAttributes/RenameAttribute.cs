@@ -79,7 +79,7 @@ namespace Cirrus.Editor
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            Editor.RefEditorGUI.DefaultPropertyField(position, property.GetParent(), new GUIContent("Hello"));
+            //Editor.RefEditorGUI.DefaultPropertyField(position, property.GetParent(), new GUIContent("Hello"));
             //EditorGUI.
             //EditorGUI.BeginProperty(position,  new GUIContent(((CollectionRenameAttribute)attribute).NewName), property.GetParent());
             //EditorGUI.PropertyField(position, property.GetParent(), new GUIContent("Hello"), true);

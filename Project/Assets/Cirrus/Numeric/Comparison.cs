@@ -19,15 +19,21 @@ namespace Cirrus.Numeric
         [SerializeField]
         private ComparisonOperator _operator;
 
+  
         [SerializeField]
-        private Numeric.FlexibleNumber _reference;
+        public FlexibleNumber Reference;
 
-        public bool Check(float value)
+        public bool Verify(float value)
         {
-            return Check(value, _reference.Value);
+            return DoVerify(value, Reference.Value);
         }
 
-        public bool Check(float value, float reference)
+        public bool Verify(float value, float reference)
+        {
+            return DoVerify(value, reference + Reference.Value);
+        }
+
+        private bool DoVerify(float value, float reference)
         {
             switch (_operator)
             {
@@ -46,7 +52,6 @@ namespace Cirrus.Numeric
                 case ComparisonOperator.GreaterThanEqual:
                     return value > reference || Utils.Mathf.CloseEnough(value, reference);
 
-
                 default:
                     return false;
             }
@@ -54,7 +59,7 @@ namespace Cirrus.Numeric
 
         public void OnValidate()
         {
-            _reference.OnValidate();
+            Reference.OnValidate();
         }
 
 

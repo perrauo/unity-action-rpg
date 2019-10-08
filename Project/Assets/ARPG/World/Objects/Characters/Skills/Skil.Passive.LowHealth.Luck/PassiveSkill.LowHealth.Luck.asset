@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f9c567fd9bdce45b5b09a1c54735f2, type: 3}
+  m_Name: PassiveSkill.LowHealth.Luck
+  m_EditorClassIdentifier: 
+  _locked: 0
+  _visible: 0
+  _unlockConditions: {fileID: 0}
+  _visibleConditions: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 96545e34a4804294fb04c29cfaed44a7, type: 3}
+  _description:
+    _values: []
+    _text: Increase chance of critical hits in a pinch.

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06a33ffac2fc2b4e932f8e60507c1f0, type: 3}
+  m_Name: Operation.Energy
+  m_EditorClassIdentifier: 
+  _number:
+    _isResource: 1
+    _resouce: {fileID: 11400000, guid: 5c1f392cbd3d7674ba19ed9ebbffe7a9, type: 2}
+    _value:
+      _isRange: 0
+      _rangeFloat:
+        _min: 0
+        _max: 0
+      _isFloatVisible: 0
+      _isIntVisible: 1
+      _float: 0
+  _isSubtract: 1

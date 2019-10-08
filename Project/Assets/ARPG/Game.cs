@@ -4,29 +4,33 @@ using System.Reflection;
 using UnityEngine;
 
 
-namespace Cirrus.ARPG
+namespace Cirrus.DH
 {
     public class Layers
     {
-        public int Objects = 1 << LayerMask.NameToLayer("Objects");
-        public int Layout = 1 << LayerMask.NameToLayer("Layout");
+        //public int 
+        public int ObjectsFlags = 1 << LayerMask.NameToLayer("Objects");
+        public int LayoutFlags = 1 << LayerMask.NameToLayer("Layout");
+        public int Objects = LayerMask.NameToLayer("Objects");
+        public int Layout = LayerMask.NameToLayer("Layout");
     }
 
     public class Game : MonoBehaviour
     {
+        private static Game _instance;
+
         public static Game Instance;
 
         public Layers Layers;
 
-
-        [RuntimeInitializeOnLoadMethod] // Will exec, even if no GObjs
-        static void OnRuntimeMethodLoad()
-        {
-
-        }
+        [SerializeField]
+        public Clock Clock;
 
         [SerializeField]
-        public Persistence Persistence;
+        public Controls.PlayerLobby Lobby;
+
+        [SerializeField]
+        public Controls.Player Player;
 
         void Awake()
         {
@@ -38,25 +42,21 @@ namespace Cirrus.ARPG
 
             Layers = new Layers();
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+
+            DontDestroyOnLoad(this.gameObject);             
         }
 
+        public void Start()
+        {
 
-        
-
+            Player.Enable();         
+            
+        }
 
 
         public void OnValidate()
         {
-            if (Persistence == null)
-            {
-                Persistence = GetComponentInChildren<Persistence>();
-            }
 
-            //if (Clock == null)
-            //{
-            //    Clock = GetComponentInChildren<Time.Clock>();
-            //}
         }
 
 

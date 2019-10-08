@@ -18,7 +18,7 @@
 //        public int SatisfiedFlag = 0x000;
 
 
-//        public Listener(DH.Conditions.BaseCondition condition)
+//        public Listener(ARPG.Conditions.BaseCondition condition)
 //        {
 //            _condition = condition;
 //            _source.AddConditionListener(this);
@@ -38,7 +38,7 @@
 //            _condition.AttachListener(this, source);
 //        }
 
-//        public void Attach(Objects.Characters.Character source)
+//        public void Attach(World.Objects.Characters.Character source)
 //        {
 //            _source = source;
 //            _condition.AttachListener(this, source);

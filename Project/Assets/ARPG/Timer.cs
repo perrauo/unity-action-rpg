@@ -1,24 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-// TODO: use in cooldown
 
-
-namespace Cirrus.ARPG
+namespace Cirrus.DH
 {
-    public delegate void OnTimeLimit();
-
-    // A timer cannot be created in Start(), or Wake() because it needs the Clock, instead to create duiring init use OnEnable
+    [System.Serializable]
     public class Timer
     {
+        [SerializeField]
         bool _repeat = false;
+
+        [SerializeField]
         float _limit = -1;
+
+        [SerializeField]
         float _time = 0f;
 
-        public OnTimeLimit OnTimeLimitHandler;
+        bool active = false;
+        public bool IsActive
+        {
+            get
+            {
+                return active;
+            }
+        }
+
+        public OnEvent OnTimeLimitHandler;
 
         public Timer(float limit, bool start = true, bool repeat = false)
         {
+            _time = 0;
             _limit = limit;
             _repeat = repeat;
 
@@ -28,26 +40,59 @@ namespace Cirrus.ARPG
             }
         }
 
-        public void Reset()
+        public float Time
         {
+            get
+            {
+                return _time;
+            }
+        }
+
+        public void Reset(float limit = -1)
+        {
+            if (limit > 0)
+            {
+                _limit = limit;
+            }
+
             _time = 0;
         }
 
-        public void Start()
+        public void Start(float limit = -1)
         {
-            Reset();
-            
-            Levels.Room.Instance.Clock.OnTickedHandler += OnTicked;
+            Reset(limit);
+
+            if (!active)
+            {
+                Game.Instance.Clock.OnTickedHandler += OnTicked;
+            }
+
+            active = true;
+        }
+
+        public void Resume()
+        {
+            if (!active)
+            {
+                Game.Instance.Clock.OnTickedHandler += OnTicked;
+            }
+
+            active = true;
         }
 
         public void Stop()
         {
-            Levels.Room.Instance.Clock.OnTickedHandler -= OnTicked;
+            if (active)
+            {
+                Game.Instance.Clock.OnTickedHandler -= OnTicked;
+            }
+
+            active = false;
         }
 
         private void OnTicked()
         {
-            _time += Time.deltaTime;
+            _time += UnityEngine.Time.deltaTime;
             if (_time >= _limit)
             {
                 OnTimeLimitHandler?.Invoke();
@@ -59,7 +104,7 @@ namespace Cirrus.ARPG
                 else
                 {
                     Stop();
-                }         
+                }
             }
         }
 
@@ -67,5 +112,6 @@ namespace Cirrus.ARPG
         {
             Stop();
         }
+
     }
 }

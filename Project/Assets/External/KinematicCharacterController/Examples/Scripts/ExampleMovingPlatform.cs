@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace KinematicCharacterController.Examples
 {
-    public class ExampleMovingPlatform : BaseMoverController
+    public class ExampleMovingPlatform : MonoBehaviour, IMoverController
     {
+        public PhysicsMover Mover;
+
         public Vector3 TranslationAxis = Vector3.right;
         public float TranslationPeriod = 10;
         public float TranslationSpeed = 1;
@@ -22,14 +24,16 @@ namespace KinematicCharacterController.Examples
         {
             _originalPosition = Mover.Rigidbody.position;
             _originalRotation = Mover.Rigidbody.rotation;
+
+            Mover.MoverController = this;
         }
 
-        public override void UpdateMovement(out Vector3 GoalPosition, out Quaternion GoalRotation, float deltaTime){
-
-            GoalPosition = (_originalPosition + (TranslationAxis.normalized * Mathf.Sin(Time.time * TranslationSpeed) * TranslationPeriod));
+        public void UpdateMovement(out Vector3 goalPosition, out Quaternion goalRotation, float deltaTime)
+        {
+            goalPosition = (_originalPosition + (TranslationAxis.normalized * Mathf.Sin(Time.time * TranslationSpeed) * TranslationPeriod));
 
             Quaternion targetRotForOscillation = Quaternion.Euler(OscillationAxis.normalized * (Mathf.Sin(Time.time * OscillationSpeed) * OscillationPeriod)) * _originalRotation;
-            GoalRotation = Quaternion.Euler(RotationAxis * RotSpeed * Time.time) * targetRotForOscillation;
+            goalRotation = Quaternion.Euler(RotationAxis * RotSpeed * Time.time) * targetRotForOscillation;
         }
     }
 }

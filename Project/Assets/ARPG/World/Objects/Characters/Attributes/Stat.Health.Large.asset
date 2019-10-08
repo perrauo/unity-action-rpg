@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48946440141fc348af25fd545dc527f, type: 3}
+  m_Name: Stat.Health.Large
+  m_EditorClassIdentifier: 
+  _previous: 200
+  _current: 200
+  _percent: 1
+  _total:
+    _isResource: 1
+    _resouce: {fileID: 11400000, guid: 6984236dd57667149b442769795dcf0e, type: 2}
+    _value:
+      _isRange: 1
+      _rangeFloat:
+        _min: 0
+        _max: 0
+      _isFloatVisible: 0
+      _isIntVisible: 1
+      _float: 0
+  _tag: {fileID: 11400000, guid: d9c6d9562037d334c9e32ab303512380, type: 2}

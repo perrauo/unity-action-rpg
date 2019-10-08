@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &538474470532903307
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6180963840828775238, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: m_Name
+      value: Character.Playable.WolfBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183980601892566840, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183980601892566840, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183980601892566840, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183980601892566840, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3740812529395047910, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3740812529395047910, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _hotBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969072237617836022, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969072237617836022, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _tags.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969072237617836022, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _tags.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969072237617836022, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _hudUser
+      value: 
+      objectReference: {fileID: 8041431883312235223}
+    - target: {fileID: 7557581258380374876, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _profile
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706932913522117340, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706932913522117340, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706932913522117340, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _hotBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 417289340332637835, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: _agent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 417289340332637835, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: BaseUtility
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548746287931406382, guid: 5549cb06bd186b0479c07b7e247c1357,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5549cb06bd186b0479c07b7e247c1357, type: 3}
+--- !u!114 &8041431883312235223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7557581258380374876, guid: 5549cb06bd186b0479c07b7e247c1357,
+    type: 3}
+  m_PrefabInstance: {fileID: 538474470532903307}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6d3ad3bf746a54f9cf4881ca914f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
