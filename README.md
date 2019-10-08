@@ -18,16 +18,16 @@ This project is a work in progress.
     * Character
     * Interactable
     
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/BaseObject.cs
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Characters/Character.cs
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/BaseObject.cs
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Characters/Character.cs
 
 
 * Character Controller System
     * Finite state machine
     * Kinematic Character Controller Integration
     
-    https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/Objects/Characters/KinematicControls
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Characters/FSM/State.cs
+    https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/World/Objects/Characters/KinematicControls
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Characters/FSM/State.cs
    
  * Agent System (Utility based agent)
     * Agent
@@ -36,11 +36,11 @@ This project is a work in progress.
     * Consideration
     * Listeners (listens for changes in the environment)
     
-    https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/Objects/Characters/Controls/AI
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Characters/Controls/AI/Agent.cs
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Characters/Controls/AI/Option.cs
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Characters/Controls/AI/Consideration.cs
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Characters/Controls/AI/FSM/State.cs
+    https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/World/Objects/Characters/Controls/AI
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Characters/Controls/AI/Agent.cs
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Characters/Controls/AI/Option.cs
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Characters/Controls/AI/Consideration.cs
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Characters/Controls/AI/FSM/State.cs
     
     
  * Controls System
@@ -59,11 +59,11 @@ This project is a work in progress.
     * Modifiers
     
     https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Actions/BaseEffect.cs
-    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Characters/Actions/Abilities/Ability.cs
+    https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Characters/Actions/Abilities/Ability.cs
 
 * Attributes
-   https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/Objects/Attributes
-   https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/Objects/Characters/Attributes
+   https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/World/Objects/Attributes
+   https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/World/Objects/Characters/Attributes
 
 * Reaction System
     * GlobalReaction
@@ -76,11 +76,11 @@ This project is a work in progress.
    * Random drops
    * Collectibles
    
-   https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/Objects/Items
-   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Items/InventoryUser.cs
-   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Items/Inventory.cs
-   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Items/Collectible.cs
-   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/Objects/Items/Drop.cs
+   https://github.com/OliPerraul/arpg-framework/tree/master/Project/Assets/ARPG/World/Objects/Items
+   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Items/InventoryUser.cs
+   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Items/Inventory.cs
+   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Items/Collectible.cs
+   https://github.com/OliPerraul/arpg-framework/blob/master/Project/Assets/ARPG/World/Objects/Items/Drop.cs
    
 
 * Persistence and room transition
@@ -96,8 +96,7 @@ This project is a work in progress.
 * Reward System
     * Reward
     * Tiers
-       
-   
+         
     
 # Upcoming Systems
 
@@ -105,9 +104,6 @@ This project is a work in progress.
    * Population Count/ Danger Count
    * Loss/ Victory conditions
 
-* Action Inventory System
-
-* Focus Targeting System
 
 * Status Effects/ Persistent Effects System
 
