@@ -1,10 +1,13 @@
 # ARPG FRAMEWORK
+![alt text](https://github.com/OliPerraul/arpg-framework/blob/master/Capture4.PNG)
+![alt text](https://github.com/OliPerraul/arpg-framework/blob/master/Capture5.PNG)
+![alt text](https://github.com/OliPerraul/arpg-framework/blob/master/Capture6.PNG)
 
 ![alt text](https://github.com/OliPerraul/arpg-framework/blob/master/dungeon.PNG)
 ![alt text](https://github.com/OliPerraul/arpg-framework/blob/master/Capture2.PNG)
 
 # Unity version
-2018.3.10.f1
+2019.2.2f1
 
 # Disclaimers
 This project is a work in progress.
